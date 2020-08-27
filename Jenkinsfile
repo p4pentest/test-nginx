@@ -11,3 +11,5 @@ pipeline {
                   sh 'docker run -it -p 80:80 getintodevops-hellonode:1'
          }
       }
+    }
+}
