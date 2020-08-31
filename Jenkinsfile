@@ -5,7 +5,7 @@ pipeline {
             steps {
                 //sh 'ls -ahl'
                 //echo 'Hello'
-                sh 'docker build -t ./nginx'
+                sh 'docker build nginx'
             }
         }
     }
