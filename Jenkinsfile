@@ -5,7 +5,7 @@ pipeline {
             steps {
                 //sh 'ls -ahl'
                 //echo 'Hello'
-                sh 'docker build nginx-server nginx'
+                sh 'docker build -t nginx-server nginx'
             }
         }
         stage('Nginx Deploy') {
