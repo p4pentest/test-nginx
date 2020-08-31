@@ -1,18 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('Nginx Build') {
+        stage('Docker Clear') {
             steps {
-                //sh 'ls -ahl'
-                //echo 'Hello'
-                sh 'docker build -t nginx-server nginx'
+                sh 'docker images -f dangling=true -q | xargs docker rmi || true'
             }
         }
         stage('Nginx Deploy') {
             steps {
-                //sh 'ls -ahl'
-                //echo 'Hello'
-                sh 'docker run -d --rm -it -p 8081:80 --name nginx-web nginx-server:latest'
+                sh 'docker build --no-cache -t "devsecops/server:nginx" -f nginx/Dockerfile'
+                sh 'docker run -d --rm -it -p 8081:80 --name nginx-web "devsecops/server:nginx"'
             }
         }
     }
