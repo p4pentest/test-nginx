@@ -1,11 +1,14 @@
 pipeline {
-    agent {
-        docker { image 'node:14-alpine' }
-    }
+    agent any
     stages {
-        stage('Test') {
+        stage('Nginx Build') {
             steps {
-                sh 'node --version'
+                sh 'docker --build -t nginx'
+            }
+        }
+        stage('Nginx Deploy') {
+            steps {
+                sh 'docker run --rm -it -p 8081:80 nginx'
             }
         }
     }
