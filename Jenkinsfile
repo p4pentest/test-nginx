@@ -12,7 +12,7 @@ pipeline {
             steps {
                 //sh 'ls -ahl'
                 //echo 'Hello'
-                sh 'docker run --rm -t -p 8081:80 nginx-server'
+                sh 'docker run -d --rm -it -p 8081:80 --name nginx-web nginx-server:latest'
             }
         }
     }
