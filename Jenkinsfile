@@ -17,13 +17,13 @@ pipeline {
          parallel { 
                   stage('Parallel Stage 1') {
                            steps {
-                                echo 'Hello..This is parallel stage 1!'
+                                echo 'Hello..This is staging parallel stage 1!'
                                 input('Do you want to proceed?')
                            }
                   }
                   stage('Parallel Stage 2') {
                            steps {
-                                echo 'Hello..This is parallel stage 2!'
+                                echo 'Hello..This is staging parallel stage 2!'
                                  input('Do you want to proceed?')
                            }
                   }
@@ -31,7 +31,7 @@ pipeline {
       }
       stage('Deploy') {
          steps {
-                  echo 'Hello..This is build stage!'
+                  echo 'Hello..This is final deployment stage!'
                   input('Do you want to proceed?')
          }
       }
