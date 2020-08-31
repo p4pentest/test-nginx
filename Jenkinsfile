@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Nginx Deploy') {
             steps {
-                sh 'docker build --no-cache -t "devsecops/server:nginx" -f nginx/Dockerfile'
+                sh 'docker build --no-cache -t "devsecops/server:nginx" -f "nginx/Dockerfile"'
                 sh 'docker run -d --rm -it -p 8081:80 --name nginx-web "devsecops/server:nginx"'
             }
         }
