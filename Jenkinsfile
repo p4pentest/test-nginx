@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Nginx Build') {
             steps {
-                sh 'ls -ahl'
-                echo 'Hello'
-                //sh 'docker build -t nginx'
+                //sh 'ls -ahl'
+                //echo 'Hello'
+                sh 'docker build -t ./nginx'
             }
         }
     }
