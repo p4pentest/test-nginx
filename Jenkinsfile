@@ -4,7 +4,7 @@ pipeline {
       stage('Build') {
          steps {
             echo 'Hello..This is build stage!'
-            sh 'docker --version'
+            sh 'whoami'
          }
       }
     }
