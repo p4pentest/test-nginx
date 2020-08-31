@@ -1,10 +1,11 @@
 pipeline {
-    agent { docker { image 'node:6.3' } }
+   agent any
     stages {
-        stage('build') {
-            steps {
-                sh "whoami"
-            }
-        }
+      stage('Build') {
+         steps {
+            echo 'Hello..This is build stage!'
+            sh 'pwd'
+         }
+      }
     }
 }
