@@ -8,8 +8,8 @@ pipeline {
         }
         stage('Nginx Deploy') {
             steps {
-                sh 'docker build --no-cache -t nginx-web nginx'
-                sh 'docker run -d --rm -it -p 8081:80 --name nginx-w nginx-web'
+                sh 'docker build --no-cache -t webserver:nginx-web nginx'
+                sh 'docker run -d --rm -it -p 8081:80 --name nginx-w webserver:nginx-web'
             }
         }
     }
