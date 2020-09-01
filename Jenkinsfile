@@ -4,6 +4,7 @@ pipeline {
         stage('Docker Clear') {
             steps {
                 sh 'docker images -f dangling=true -q | xargs docker rmi || true'
+                sh 'service docker restart'
             }
         }
         stage('Nginx Deploy') {
